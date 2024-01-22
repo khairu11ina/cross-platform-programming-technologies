@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <title></title>
+ <center>
+     <input id="a" />
+    <div id="operators">
+        <button onclick="stackobj.push(a.value);" >Push</button>
+        <button onclick="stackobj.pop();"  >Pop</button>
+    </div>
+ <p id="Output"></p>
+</center>
+ <script type="text/javascript">
+
+function Stack()
+{
+    this._size = 0;
+    this._storage = {};
+}
+
+Stack.prototype.push = function(data)
+{
+    var size = ++this._size;
+    this._storage[size] = data;
+    document.getElementById("Output").innerHTML ="№ ячейки "+(size-1)+"; добавлен элемент "+data;
+
+};
+
+Stack.prototype.pop = function()
+{
+    var size = this._size,
+        deletedData;
+
+    if (size) {
+        deletedData = this._storage[size];
+
+        delete this._storage[size];
+        this._size--;
+        document.getElementById("Output").innerHTML ="№ ячейки "+(size-1)+" удалён элемент "+deletedData;
+    }
+    else
+    document.getElementById("Output").innerHTML = "Стек пуст";
+};
+stackobj= new Stack();
+
+ </script>
+</head>
+<body>
+</body>
+</html>
