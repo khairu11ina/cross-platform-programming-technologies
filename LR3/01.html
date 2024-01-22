@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+
+  </head>
+ <title></title>
+
+ <script type="text/javascript">
+
+var arr = Array(3, 5, -3, 6, 143, 7, 12, -87, 54, 32, -78, 5, 43);
+max_x=Math.max.apply(0, arr);
+alert("Наибольшее значение массива = " + max_x);
+min_x=Math.min.apply(0, arr);
+alert("Наибольшее значение массива = " + min_x);
+var sum = 0;
+for(var i = 0; i < arr.length; i++){
+    sum += arr[i];
+    }
+alert("Сумма всех элементов массива = " + sum);
+var mid_arr = sum / arr.length;
+alert("Среднее арифметическое массива = " + mid_arr);
+for(var i = 0; i < arr.length; i++){
+    if (!(arr[i] % 2 == 0)) {
+      alert("Элемент по индексу " + i + " со значением " + arr[i] + " не четный");
+    }
+    }
+ </script>
+</head>
+<body>
+</body>
+</html>
