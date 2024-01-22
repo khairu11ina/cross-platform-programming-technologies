@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<script type="text/javascript">
+var stack = [], i = -1;
+var queue = [], topn = 0, bot = 0;
+function get_stack()
+{
+if(i >= 0)
+return stack[i--];
+else alert("Empty stack");
+}
+function put_stack(num)
+{
+stack[++i] = num;
+}
+function get_queue()
+{
+if(bot < topn)
+return queue[bot++];
+else
+{
+bot = 0;
+return queue[bot++];
+}
+}
+function put_queue(num)
+{
+queue[topn++] = num;
+}
+put_stack(1);
+put_stack(35);
+put_stack(6);
+document.write(get_stack(), "<br>");
+document.write(get_stack(), "<br>", "<br>");
+put_queue(2);
+document.write(get_queue(), "<br>");
+document.write(get_queue(), "<br>");
+</script>
+</head>
+<body>
+</body>
