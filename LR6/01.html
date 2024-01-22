@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<br>
+<input type="text" id="text">
+<br>
+<input type="button" id="push" value="Push" onclick="push()">
+<input type="button" id="pop" value="Pop" onclick="pop()">
+<script type="text/javascript">
+class Stack
+{
+constructor()
+{
+this.stack = [];
+this.i = -1;
+}
+put(num)
+{
+this.stack[++this.i] = num;
+}
+get()
+{
+if(this.i >= 0)
+return this.stack[this.i--];
+else return "Стэк пуст";
+}
+}
+var st = new Stack();
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+draw();
+function draw()
+{
+canvas.height = 170;
+canvas.width = 260;
+ctx.strokeRect(1, 1, 170, 256);
+for(var i = st.i; i >= 0; i--)
+ctx.fillText(st.stack[i], 5, 20 * (st.i - i + 1));
+}
+function push()
+{
+var text = document.getElementById("text").value;
+st.put(text);
+document.getElementById("text").value = "";
+draw();
+}
+function pop()
+{
+st.get();
+draw();
+}
+</script>
+</body>
+</html>
