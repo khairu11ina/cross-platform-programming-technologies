@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <title></title>
+ <script type="text/javascript">
+//ex 2.3 прямоугольник
+var shir = 10;
+var dlin = 5;
+var space = ' ';
+var star = '*';
+
+for (var i = 0; i < dlin; ++i) {
+  var str = '';
+
+  // если это первая или последняя строка
+  if (i == 0 || i == dlin - 1) {
+    for (var j = 0; j < shir; ++j) {
+      str += star;
+    }
+    // если это строка в середине, то * нужны в начале и в конце
+  } else {
+    str = star;
+    for (var j = 0; j < shir - 2; ++j) {
+      str += space;
+    }
+    str += star;
+  }
+document.write(str);
+}
+*/
+
+/*
+//ex 2.3 прямоугольный треугольник
+var dlin = 6;
+var str = '';
+var i = 0;
+while (i < dlin) {
+  str += '*';
+  document.write(str);
+  i++;
+}
+*/
+
+/*
+//ex 2.3 равносторонний треугольник
+var dlin = 6;
+var space = '';
+var star = '';
+var i = 0;
+var j = 0;
+
+while (i < dlin) {
+  space = '';
+  star = '';
+  for (j = 0; j < dlin - i; j++) {
+    space += ' ';
+  }
+  for (j = 0; j < 2 * i + 1; j++) {
+    star += '*';
+  }
+  document.write(space + star);
+  i++;
+}
+*/
+
+/*
+//ex 2.3 ромб
+var dlin = 4;
+for (var i = -dlin; i <= dlin; i++) {
+  var str = '';
+  for (var j = -dlin; j <= dlin; j++) {
+    // если точка принадлежит ромбу
+    if (Math.abs(i) + Math.abs(j) == dlin) {
+      str += '*';
+    } else {
+      str += ' ';
+    }
+  }
+  document.write(str);
+}
+*/
+</script>
+</head>
+<body>
+</body>
+</html>
