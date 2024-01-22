@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<br>
+<input type="text" id="text">
+<br>
+<input type="button" id="push" value="Push" onclick="push()">
+<input type="button" id="pop" value="Pop" onclick="pop()">
+<script type="text/javascript">
+class Queue
+{
+constructor()
+{
+this.queue = [];
+this.topn = 0;
+this.bot = 0;
+}
+put(num)
+{
+this.queue[this.topn++] = num;
+}
+get()
+{
+if(this.bot < this.topn)
+return this.queue[this.bot++];
+else
+{
+this.bot = 0;
+return this.queue[this.bot++];
+}
+}
+}
+var q = new Queue();
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+draw();
+function draw()
+{
+canvas.height = 170;
+canvas.width = 260;
+ctx.strokeRect(1, 1, 170, 256);
+for(var i = q.bot; i < q.topn; i++)
+ctx.fillText(q.queue[i], 5, 20 * (i - q.bot + 1));
+} 
+function push()
+{
+var text = document.getElementById("text").value;
+q.put(text);
+document.getElementById("text").value = "";
+draw();
+}
+function pop()
+{
+q.get();
+draw();
+}
+</script>
+</body>
+</html>
