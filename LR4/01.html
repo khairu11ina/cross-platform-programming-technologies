@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<script type="text/javascript">
+function add(a, b)
+{
+document.write(a + " + " + b + " = " + (a + b) + "<hr/>");
+}
+function sub(a, b)
+{
+document.write(a + " - " + b + " = " + (a - b) + "<hr/>");
+}
+function mul(a, b)
+{
+document.write(a + " * " + b + " = " + (a * b) + "<hr/>");
+}
+function div (a, b)
+{
+if (b == 0)
+{
+document.write("На 0 делить запрещено <hr/>");
+return;
+}
+else
+{
+document.write(a + " / " + b + " = " + (a / b) + "<hr/>");
+}
+}
+do{
+a = parseFloat(prompt("Введите первое число"));
+sign = prompt("Введите знак");
+b = parseFloat(prompt("Введите второе число"));
+switch (sign)
+{
+case "+":
+add(a, b);
+break;
+case "-":
+sub(a, b);
+break;
+case "*":
+mul(a, b);
+break;
+case "/":
+div(a, b);
+break;
+}
+ans = confirm("Выполнить операцию ещё раз?");
+}while(ans)
+</script>
+</head>
+<body>
+</body>
+</html>
