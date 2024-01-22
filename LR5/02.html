@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+</head>
+<body>
+<script type="text/javascript">
+Queue = {
+queue: [],
+topn: 0,
+bot: 0,
+put: function(num)
+{
+this.queue[this.topn++] = num;
+},
+get: function()
+{
+if(this.bot < this.topn)
+return this.queue[this.bot++];
+else
+{
+this.bot = 0;
+return this.queue[this.bot++];
+}
+}
+}
+Queue.put(4);
+Queue.put(7);
+Queue.put(3);
+document.write(Queue.get(), "<br>");
+document.write(Queue.get(), "<br>");
+document.write(Queue.get(), "<br>");
+document.write(Queue.get(), "<br>");
+document.write(Queue.get(), "<br>");
+document.write(Queue.get(), "<br>");
+</script>
+</body>
+</html>
