@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+</head>
+<body>
+<script type="text/javascript">
+Stack = {
+i: -1,
+stack: [],
+put: function(num)
+{
+this.stack[++this.i] = num;
+},
+get: function()
+{
+if(this.i >= 0)
+return this.stack[this.i--];
+else alert("Empty stack");
+}
+}
+Stack.put(3);
+Stack.put(7);
+Stack.put(5);
+document.write(Stack.get(), "<br>");
+document.write(Stack.get(), "<br>");
+document.write(Stack.get(), "<br>");
+</script>
+</body>
+</html>
