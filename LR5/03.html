@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+</head>
+<body>
+<script type="text/javascript">
+link = {
+constructor: function(num, next, prev)
+{
+this.val = num;
+this.next = next;
+this.prev = prev;
+}
+}
+list = {
+first: null,
+add: function(num)
+{
+if(this.first == null)
+{
+var nl = new link.constructor(num);
+this.first = nl;
+}
+else
+{
+var cl = this.first;
+while(cl.next != null)
+cl = cl.next;
+var nl = new link.constructor(num, null, cl);
+cl.next = nl;
+}
+},
+get: function()
+{
+var num = this.first.val;
+if(this.first.next != null)
+{
+this.first = this.first.next;
+this.first.prev = null;
+}
+else this.first = null;
+return num;
+}
+}
+list.add(5);
+list.add(9);
+list.add(3);
+document.write(list.get(), "<br>");
+document.write(list.get(), "<br>");
+document.write(list.get(), "<br>");
+</script>
+</body>
+</html>
