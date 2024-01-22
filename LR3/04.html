@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   <title></title>
+  <center>
+    <br><br><br>
+    <p>Queue</p>
+    <input id="var2" />
+    <div id="Queue">
+      <button onclick="queueobj.size(var2.value);">Set Size</button>
+      <button onclick="queueobj.enqueue(var2.value);">Push</button>
+      <button onclick="queueobj.dequeue();">Pop</button>
+    </div>
+    <p id="Output2"></p>
+  </div>
+   </center>
+
+ <script type="text/javascript">
+
+
+class Queue {
+  constructor() {
+    this.head = 0;
+    this.tail = 0;
+    this.maxsize = 0;
+    this.amount = 0;
+    this._storage = {};
+  }
+  size(size) {
+    if (size) {
+      this.maxsize = size;
+      document.getElementById("Output2").innerHTML = "Установлен размер очереди: " + size;
+    }
+    else
+      document.getElementById("Output2").innerHTML = "Введите число, означающее размер очереди";
+  }
+  enqueue(data) {
+    if (data) {
+      if (this.amount < this.maxsize && this.maxsize > 0) {
+        this._storage[this.tail] = data;
+        document.getElementById("Output2").innerHTML = "В ячейку очереди " + (this.tail++) + " добавлен элемент " + data;
+        ++this.amount;
+        if (this.tail >= this.maxsize) {
+          this.tail = 0;
+        }
+      }
+      else
+        if (this.maxsize == 0)
+          document.getElementById("Output2").innerHTML = "Введите число, большее 0, означающее размер очереди";
+        else
+          document.getElementById("Output2").innerHTML = "Очередь переполнена";
+    }
+    else
+      document.getElementById("Output2").innerHTML = "Введите число";
+  }
+
+  dequeue() {
+    if (this.amount > 0) {
+      document.getElementById("Output2").innerHTML = "Из ячейки очереди " + this.head + " удалён элемент " + this._storage[this.head++];
+      --this.amount;
+      if (this.head >= this.maxsize)
+
+        this.head = 0;
+
+    }
+    else
+      document.getElementById("Output2").innerHTML = "Очередь пуста";
+  }
+}
+queueobj = new Queue();
+
+ </script>
+</head>
+<body>
+</body>
+</html>
